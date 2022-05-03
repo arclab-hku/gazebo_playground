@@ -1,0 +1,18 @@
+material BrickBox/Sea
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture sea.jpg
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>    
+
+  <!--env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find rotors_gazebo)/models"/>
+  <env name="GAZEBO_RESOURCE_PATH" value="${GAZEBO_RESOURCE_PATH}:$(find rotors_gazebo)/models"/-->
+    <node pkg="gazebo_sim" type="sim1.sh" 
+    name="launch_sim_world" output="screen">
+    </node>
+	<!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find gazebo_sim)/launch/planning_demo.rviz" required="true" /> -->
+	<!--node pkg="gazebo_sim" type="imu_boost.sh" 
+    name="imu_boost" output="screen">
+    </node-->
+</launch>
