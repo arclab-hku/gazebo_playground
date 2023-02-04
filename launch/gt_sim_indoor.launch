@@ -20,6 +20,7 @@
    	 </node-->
    	 	<!--param name="repub_topic" type="string" value="/mavros/vision_pose/pose" /-->
    	  <!--param name="sub_topic" type="string" value="/gt_iris_base_link_imu"/-->
+
 	     <node pkg="gazebo_sim" type="imu_boost.sh" 
     name="imu_boost" output="screen">
     </node>

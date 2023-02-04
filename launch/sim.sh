@@ -3,25 +3,29 @@
 #sleep 1
 echo ' ' | sudo -S pkill -9 gzserver
 echo ' ' | sudo -S pkill -9 gzclient
+CRTDIR=$(cd "$(dirname "$0")";pwd)
+echo $CRTDIR
 sleep 2
-export LD_LIBRARY_PATH=~/dynamic_avoid_ws/devel/lib:/opt/ros/melodic/lib
+current_ws=$(dirname $(dirname $(dirname $CRTDIR)))
+export LD_LIBRARY_PATH=$current_ws/devel/lib:/opt/ros/noetic/lib
+# echo $LD_LIBRARY_PATH
 
-#export PYTHONPATH=$PYTHONPATH:"/home/zuzu/.local/lib/python2.7/site-packages"
 
 cd ~/PX4-Autopilot
 DONT_RUN=1 make px4_sitl_default gazebo
+CRTDIRPX4=~/PX4-Autopilot
 #source ~/han_ws/devel/setup.bash    # (optional)
-source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
-
-export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:~/dynamic_avoid_ws/src/gazebo_sim/gazebo
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/dynamic_avoid_ws/src/gazebo_sim/gazebo/models
-export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:~/dynamic_avoid_ws/devel/lib
+source Tools/setup_gazebo.bash $CRTDIRPX4 $CRTDIRPX4/build/px4_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$CRTDIRPX4
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$CRTDIRPX4/Tools/sitl_gazebo
+echo $ROS_PACKAGE_PATH
+export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:$current_ws/src/gazebo_playground/gazebo
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$current_ws/src/gazebo_playground/gazebo/models
+export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:$current_ws/devel/lib
 
 echo $GAZEBO_RESOURCE_PATH
 echo $GAZEBO_MODEL_PATH
 echo $GAZEBO_PLUGIN_PATH
 
 roslaunch gazebo_sim gazebo_sim.launch pause:=false
-#sleep 3
+# sleep 3
