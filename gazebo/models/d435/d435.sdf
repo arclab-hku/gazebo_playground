@@ -137,7 +137,7 @@
                </image>
                <clip>
                   <near>0.1</near>
-                  <far>8</far>
+                  <far>10.0</far>
                </clip>
                <noise>
                   <type>gaussian</type>
@@ -168,7 +168,8 @@
          <infrared1OpticalframeName>camera_left_ir_optical_frame</infrared1OpticalframeName>
          <infrared2OpticalframeName>camera_right_ir_optical_frame</infrared2OpticalframeName>
          <rangeMinDepth>0.01</rangeMinDepth>
-         <rangeMaxDepth>8.0</rangeMaxDepth>
+         <rangeMaxDepth>8.0</rangeMaxDepth>  
+         <!-- should smaller than cameradepth-clip-far , or the point farther than "far" (even infinity) is clipped to depth "far" -->
          <pointCloud>1</pointCloud>
          <pointCloudTopicName>depth/color/points</pointCloudTopicName>
          <pointCloudCutoff>0.01</pointCloudCutoff>

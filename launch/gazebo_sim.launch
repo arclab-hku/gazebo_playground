@@ -1,6 +1,6 @@
 <launch>
     <!-- PX4 SITL and Gazebo -->
-    <arg name="x" default="-6"/>
+    <arg name="x" default="0"/>
     <arg name="y" default="0"/>
     <arg name="z" default="0"/>
     <arg name="R" default="0"/>
@@ -29,7 +29,7 @@
     <env name="PX4_ESTIMATOR" value="$(arg est)" />
 
     <!-- gazebo configs -->
-    <arg name="gui" default="true"/>
+    <arg name="gui" default="false"/>
     <arg name="debug" default="false"/>
     <arg name="verbose" default="false"/>
     <arg name="paused" default="false"/>
