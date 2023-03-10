@@ -39,7 +39,7 @@ find_package(catkin REQUIRED COMPONENTS
   roslib
   std_srvs
   sensor_msgs
-  decomp_ros_utils
+  # decomp_ros_utils
 )
 
   catkin_package(

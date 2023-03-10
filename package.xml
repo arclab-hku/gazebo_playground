@@ -28,7 +28,7 @@
   <exec_depend>std_msgs</exec_depend>
   <!-- <exec_depend>octomap_server</exec_depend> -->
 
-  <depend>decomp_ros_utils</depend>
+  <!-- <depend>decomp_ros_utils</depend> -->
   <depend>gazebo_ros</depend>
   <depend>sensor_msgs</depend>
   <!-- <depend>image_transport</depend> -->

@@ -21,7 +21,7 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$CRTDIRPX4/Tools/sitl_gazebo
 echo $ROS_PACKAGE_PATH
 export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:$current_ws/src/gazebo_playground/gazebo
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$current_ws/src/gazebo_playground/gazebo/models
-export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:$current_ws/devel/lib
+export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:$current_ws/devel/lib:$current_ws/src/gazebo_playground/gazebo/actor_collisions/build
 
 echo $GAZEBO_RESOURCE_PATH
 echo $GAZEBO_MODEL_PATH
