@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <launch>
+    <include file="$(find gazebo_sim)/launch/rviz.launch">
+    </include>
     <!-- PX4 SITL and Gazebo -->
-    <arg name="x" default="2.0"/>
-    <arg name="y" default="0"/>
+    <arg name="x" default="10.0"/>
+    <arg name="y" default="2.0"/>
     <arg name="z" default="0"/>
     <arg name="R" default="0"/>
     <arg name="P" default="0"/>
@@ -11,14 +13,7 @@
     <arg name="est" default="ekf2"/>
     <arg name="vehicle" default="iris"/>
     <arg name="my_vehicle" default="iris_d435"/>
-    <!--arg name="world" default="$(find gazebo_sim)/worlds/test1_actor.world"/-->
-    <!--arg name="world" default="$(find gazebo_sim)/worlds/test2_static.world"/-->
-     <arg name="world" default="$(find gazebo_sim)/gazebo/worlds/clustered_actors.world"/>
-    <!-- <arg name="world" default="$(find gazebo_sim)/gazebo/worlds/long_wall.world"/> -->
-    <!-- <arg name="world" default="$(find gazebo_sim)/gazebo/worlds/indoor20x20.world"/> -->
-    <!--arg name="world" default="$(find dyn_object_tracker)/worlds/test2_static.world"/-->
-    <!--arg name="world" default="$(find dyn_object_tracker)/worlds/test1_moreactor.world"/-->
-    <!--arg name="world" default="$(find gazebo_sim)/worlds/empty.world"/-->
+    <arg name="world" default="$(find gazebo_sim)/gazebo/worlds/empty.world"/>
     <arg name="sdf" default="$(find gazebo_sim)/gazebo/models/$(arg my_vehicle)/$(arg my_vehicle).sdf"/>
 
 
@@ -66,5 +61,7 @@
         <arg name="fcu_url" value="$(arg fcu_url)"/>
         <arg name="respawn_mavros" value="$(arg respawn_mavros)"/>
     </include>
-
+    
+    <include file="$(find gazebo_sim)/launch/spawn_inspection_world.launch">
+    </include>
 </launch>

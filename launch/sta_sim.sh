@@ -5,7 +5,7 @@ echo ' ' | sudo -S pkill -9 gzserver
 echo ' ' | sudo -S pkill -9 gzclient
 CRTDIR=$(cd "$(dirname "$0")";pwd)
 echo $CRTDIR
-sleep 2
+# sleep 2
 current_ws=$(dirname $(dirname $(dirname $CRTDIR)))
 export LD_LIBRARY_PATH=$current_ws/devel/lib:/opt/ros/noetic/lib
 # echo $LD_LIBRARY_PATH
@@ -27,5 +27,4 @@ echo $GAZEBO_RESOURCE_PATH
 echo $GAZEBO_MODEL_PATH
 echo $GAZEBO_PLUGIN_PATH
 
-roslaunch gazebo_sim gazebo_sim.launch pause:=false
-# sleep 3
+roslaunch gazebo_sim gazebo_sim_sta.launch pause:=false
